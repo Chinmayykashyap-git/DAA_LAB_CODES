@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class Main {
+
+    static void union(int[] a, int[] b) {
+
+        int i = 0, j = 0;
+
+        while (i < a.length && j < b.length) {
+
+            if (a[i] < b[j]) {
+                System.out.print(a[i] + " ");
+                i++;
+            }
+
+            else if (a[i] > b[j]) {
+                System.out.print(b[j] + " ");
+                j++;
+            }
+
+            else {
+                System.out.print(a[i] + " ");
+                i++;
+                j++;
+            }
+        }
+
+        while (i < a.length) {
+            System.out.print(a[i] + " ");
+            i++;
+        }
+
+        while (j < b.length) {
+            System.out.print(b[j] + " ");
+            j++;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of first array: ");
+        int n = sc.nextInt();
+
+        int[] a = new int[n];
+
+        System.out.println("Enter sorted elements:");
+        for (int i = 0; i < n; i++)
+            a[i] = sc.nextInt();
+
+        System.out.print("Enter size of second array: ");
+        int m = sc.nextInt();
+
+        int[] b = new int[m];
+
+        System.out.println("Enter sorted elements:");
+        for (int i = 0; i < m; i++)
+            b[i] = sc.nextInt();
+
+        System.out.println("Union:");
+        union(a, b);
+
+        sc.close();
+    }
+}
