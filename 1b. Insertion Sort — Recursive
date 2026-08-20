@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Main {
+
+    static void insertionSort(int[] arr, int n) {
+
+        // Base case
+        if (n <= 1)
+            return;
+
+        // Sort first n-1 elements
+        insertionSort(arr, n - 1);
+
+        // Insert last element into sorted portion
+        int last = arr[n - 1];
+        int j = n - 2;
+
+        while (j >= 0 && arr[j] > last) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = last;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        insertionSort(arr, n);
+
+        System.out.println("Sorted array:");
+        for (int x : arr) {
+            System.out.print(x + " ");
+        }
+
+        sc.close();
+    }
+}
